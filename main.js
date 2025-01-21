@@ -56,12 +56,12 @@ function resetAll() {
 }
 /*****************************************************
  * 終了条件チェック
- *   (1) distance >= 11
+ *   (1) distance >= 9
  *   (2) "empty"を含む
  *   (3) distanceMapに既に存在 (探索済み)
  *****************************************************/
 function checkEnvTermination(data, envName, nextDistance) {
-  if (nextDistance >= 11) return true;
+  if (nextDistance >= 9) return true;
   if (envName.toLowerCase().includes('empty')) return true;
   if (data.distanceMap[envName] !== undefined) return true;
   return false;
