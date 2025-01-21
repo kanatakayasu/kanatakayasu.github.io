@@ -63,6 +63,8 @@ function resetAll() {
 function checkEnvTermination(data, envName, nextDistance) {
   if (nextDistance >= 9) return true;
   if (envName.toLowerCase().includes('empty')) return true;
+  if (envName.toLowerCase().includes('in existence')) return true;
+  if (envName.toLowerCase().includes('exist')) return true;
   if (data.distanceMap[envName] !== undefined) return true;
   return false;
 }
