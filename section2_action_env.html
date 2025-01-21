@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>STEP5：行動を実行するために必要な環境の作成</title>
+  <script src="main.js"></script>
+  <style>
+    .red-border {
+        border: 5px solid red; /* 赤い太枠線 */
+        padding: 10px;        /* 内容を枠線から少し離す */
+        margin: 10px;         /* 他の要素から少し余白を取る */
+    }
+  </style>
+</head>
+<body onload="initSection2ActionEnv()">
+  <h2>STEP5：行動を実行するために必要な環境の作成</h2>
+  <p>赤枠の内容を入力してください。</p>
+  <div class="red-border">
+  <form onsubmit="saveRequiredEnvsSection2(); return false;">
+    <label>行動"<span id="actionName2"></span>"を実行するために必要な環境（カンマ区切り）:</label>
+    <br />
+    <input type="text" id="requiredEnvs2" placeholder="envA, envB, ..." />
+    <br /><br />
+    <button type="submit">登録して次へ</button>
+  </form>
+  </div>
+  
+  <p> </p>
+  <hr>
+  <p>以下の説明は、最初のページに記載されているものと同様です。</p>
+  
+  <hr>
+  <h2>STEP5の例と注意点：行動Aを実行するために必要な環境c,dの作成</h2>
+  <p>STEP3で禁止していた"in hand"等の制約はないため、それらを用いて構いません。</p>
+  <p>行動Aを実行するために必要な環境の個数は任意で、", "で区切って記入してください。</p>
+  <p>以下に例を示します。</p>
+  <ul>
+      <li>行動"pick up apple"を実行するためには、環境"hand empty, apple near body"が必要</li>
+      <li>行動"approach apple"を実行するためには、環境"apple far from body"が必要</li>
+      <li>行動"move away from body"を実行するためには、環境"apple near body"が必要</li>
+      <li>行動"eat apple"を実行するためには、環境"apple in hand, mouth empty"が必要</li>
+      <li>行動"put down apple on desk"を実行するためには、環境"apple in hand, desk near body"が必要</li>
+      <li>行動"pour water into cup"を実行するためには、環境"cup empty, cup in hand, water in hand"が必要</li>
+  </ul>
+
+</body>
+</html>

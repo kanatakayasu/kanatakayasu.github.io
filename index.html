@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>NetworkGenerate App</title>
+  <script src="main.js"></script>
+</head>
+<body>
+  <h1>プランニングネットワーク構築アプリ</h1>
+  <!-- sessionStorageを削除し、完全リセット -->
+  <button onclick="resetAll()">データ初期化</button>
+  <!-- セクション1へ進むボタン -->
+  <button onclick="goToSection1()">開始</button>
+
+  <hr>
+  <h2>実験の進め方</h2>
+  <p>実験は、以下の手順に従って進めてください。各手順の具体的な方法は、下に記載してあります。</p>
+  <ol>
+      <li>"データ初期化"ボタンを押したのち、"開始"ボタンを押してページ移動したのち、氏名と割り当てられたオブジェクトを記入</li>
+      <li>所定のオブジェクトが関連するタスクを作成</li>
+      <li>そのタスクを行うことで達成される環境aを作成</li>
+      <li>その環境aを達成するための行動Aを作成</li>
+      <li>その行動Aを実行するために必要な環境b,cを作成（個数は任意、０個でも可）</li>
+      <li>その環境bを達成するための行動Bを作成</li>
+      <li>その行動Bを実行するために必要な環境d,eを作成（個数は任意、０個でも可）</li>
+      <li>処理2-7を、終了画面が出るまで繰り返す</li>
+      <li>作成されたネットワークを見て、自身の認識と違う部分があれば、再度作成</li>
+      <li>"実験結果を保存する"ボタンを押して、ダウンロードされたファイルを提出</li>
+      <li>上記操作をあと2回繰り返し、3つのネットワークを構築（提出するファイルは3つになる）</li>
+  </ol>
+
+  <hr>
+  <h2>前提知識</h2>
+  <ul>
+      <li>行動：行動は具体的な単一の行動を表し、抽象的であってはいけない（ex. "pick up apple"（りんご拾うという行動））</li>
+      <li>環境：（ex. "apple in hand"（りんごを手に持っているという状態））</li>
+      <li>プランニングネットワーク：行動と環境をノードとする。行動を実行するために必要な環境と、行動を実行することで達成される環境を表すために、各ノードをエッジにより接続する。</li>
+    </ul>
+    <p>　</p>
+    <p>以下にネットワーク例を示します。</p>
+    <ul>
+        <li>赤ノード：最初に起点となる環境（タスクから生成される環境）</li>
+        <li>オレンジノード：環境</li>
+        <li>青ノード：行動</li>
+    <img src="network_example.png" width="600" height="460">
+
+  <hr>
+  <h2>STEP2の例：オブジェクトに関連するタスクの生成</h2>
+  <p>3回ネットワークを構築しますが、3回とも所定のオブジェクトに変更はありません。</p>
+  <p>オブジェクトに関連するタスクは、3回とも異なるものを作成してください。</p>
+  <p>以下に例を示します。</p>
+  <ul>
+      <li>オブジェクト"apple"に対して、タスク"eat apple"</li>
+      <li>オブジェクト"apple"に対して、タスク"put down apple on desk"</li>
+      <li>オブジェクト"water"に対して、タスク"pour water into cup"</li>
+  </ul>
+
+  <hr>
+  <h2>STEP3の例と注意点：最初の環境aの作成</h2>
+  <p>最初の環境aに対しては、以下のものを用いないでください。</p>
+  <ul>
+      <li>--- in hand</li>
+      <li>--- near body</li>
+      <li>--- far from body</li>
+      <li>--- in existence</li>
+  </ul>
+  <p>以下に例を示します。</p>
+  <ul>
+      <li>タスク"eat apple"を実行することで、環境"apple in hand"が達成される</li>
+      <li>タスク"put down apple on desk"を実行することで、環境"apple on desk"が達成される</li>
+      <li>タスク"pour water into cup"を実行することで、環境"water in cup"が達成される</li>
+  </ul>
+
+  <hr>
+  <h2>STEP4の例：環境aを達成するための行動Aの作成</h2>
+  <p>以下に例を示します。</p>
+  <ul>
+      <li>環境"apple in hand"を達成するためには、行動"pick up apple"が必要</li>
+      <li>環境"apple near body"を達成するためには、行動"approach apple"が必要</li>
+      <li>環境"apple far from body"を達成するためには、行動"move away from body"が必要</li>
+      <li>環境"apple in mouth"を達成するためには、行動"eat apple"が必要</li>
+      <li>環境"apple on desk"を達成するためには、行動"put down apple on desk"が必要</li>
+      <li>環境"water in cup"を達成するためには、行動"pour water into cup"が必要</li>
+  </ul>
+
+  <hr>
+  <h2>STEP5の例と注意点：行動Aを実行するために必要な環境c,dの作成</h2>
+  <p>STEP3で禁止していた"in hand"等の制約はないため、それらを用いて構いません。</p>
+  <p>行動Aを実行するために必要な環境の個数は任意で、", "で区切って記入してください。</p>
+  <p>以下に例を示します。</p>
+  <ul>
+      <li>行動"pick up apple"を実行するためには、環境"hand empty, apple near body"が必要</li>
+      <li>行動"approach apple"を実行するためには、環境"apple far from body"が必要</li>
+      <li>行動"move away from body"を実行するためには、環境"apple near body"が必要</li>
+      <li>行動"eat apple"を実行するためには、環境"apple in hand, mouth empty"が必要</li>
+      <li>行動"put down apple on desk"を実行するためには、環境"apple in hand, desk near body"が必要</li>
+      <li>行動"pour water into cup"を実行するためには、環境"cup empty, cup in hand, water in hand"が必要</li>
+  </ul>
+
+  <!-- sessionStorageを削除し、完全リセット -->
+  <button onclick="resetAll()">データ初期化</button>
+  <!-- セクション1へ進むボタン -->
+  <button onclick="goToSection1()">開始</button>
+
+</body>
+</html>

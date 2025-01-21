@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>完了ページ - プランニングネットワーク結果</title>
+  <!-- ローカルの d3.v7.min.js を読み込む -->
+  <script src="d3.v7.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body onload="displayResult()">
+  <h2>プランニングネットワーク構築結果</h2>
+  <!-- JSON保存ボタン -->
+  <button onclick="exportDataAsJson()">実験結果を保存する</button>
+  <br/>
+  <p><button onclick="resetAll()">最初に戻る</button></p>
+  <p>試行回数は3回です。足りない方は、"実験結果を保存する"ボタンを教えてから、"最初に戻る"ボタンからもう一度ネットワークを構築してください。</p>
+  <p>所定のオブジェクトに変更はありませんが、それに関連するタスクは前回と変えてください。</p>
+  <div id="resultArea"></div>
+  <h3>構築したネットワーク図</h3>
+  <div id="chart" style="width: 800px; height: 600px; border:1px solid #ccc;"></div>
+  <br/>
+</body>
+</html>

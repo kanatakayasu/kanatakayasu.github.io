@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>STEP4：環境を達成するための行動の作成</title>
+  <script src="main.js"></script>
+  <style>
+    .red-border {
+        border: 5px solid red; /* 赤い太枠線 */
+        padding: 10px;        /* 内容を枠線から少し離す */
+        margin: 10px;         /* 他の要素から少し余白を取る */
+    }
+  </style>
+</head>
+<body onload="initSection2Start()">
+  <h2>STEP4：環境を達成するための行動の作成</h2>
+  <div id="envContainer2">
+    <p>赤枠の内容を入力してください。</p>
+    <div class="red-border">
+    <form onsubmit="saveActionSection2(); return false;">
+      <label>環境"<span id="currentEnv2"></span>"を達成するために必要な行動: </label>
+      <br />
+      <input type="text" id="action2" required />
+      <br /><br />
+      <button type="submit">次へ</button>
+    </form>
+    </div>
+    <p>　</p>
+  
+    <hr>
+    <p>以下の説明は、最初のページに記載されているものと同様です。</p>
+  
+    
+    <h2>STEP4の例：環境aを達成するための行動Aの作成</h2>
+    <p>以下に例を示します。</p>
+    <ul>
+        <li>環境"apple in hand"を達成するためには、行動"pick up apple"が必要</li>
+        <li>環境"apple near body"を達成するためには、行動"approach apple"が必要</li>
+        <li>環境"apple far from body"を達成するためには、行動"move away from body"が必要</li>
+        <li>環境"apple in mouth"を達成するためには、行動"eat apple"が必要</li>
+        <li>環境"apple on desk"を達成するためには、行動"put down apple on desk"が必要</li>
+        <li>環境"water in cup"を達成するためには、行動"pour water into cup"が必要</li>
+    </ul>
+  </div>
+  <div id="noMoreEnv2" style="display: none;">
+    <p>処理対象の環境はありません。ネットワーク構築完了です。</p>
+    <button onclick="goToFinish()">結果表示へ</button>
+  </div>
+</body>
+</html>

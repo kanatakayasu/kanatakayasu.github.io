@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>STEP2,3：オブジェクト関連のタスクの作成と、それにより達成される環境の作成</title>
+  <script src="main.js"></script>
+  <style>
+    .red-border {
+        border: 5px solid red; /* 赤い太枠線 */
+        padding: 10px;        /* 内容を枠線から少し離す */
+        margin: 10px;         /* 他の要素から少し余白を取る */
+    }
+  </style>
+</head>
+<body>
+  <h2>STEP2,3：オブジェクト関連のタスクの作成と、それにより達成される環境の作成</h2>
+  <p>赤枠の内容を入力してください。</p>
+  <div class="red-border">
+  <form onsubmit="saveSection1(); return false;">
+    <div>
+      <label>氏名: </label>
+      <input type="text" id="userName" required />
+    </div>
+    <br />
+    <div>
+      <label>割り当てられた所定のオブジェクト: </label>
+      <input type="text" id="objectItem" required />
+    </div>
+    <br />
+    <div>
+      <label>所定のオブジェクトに関連するタスク: </label>
+      <input type="text" id="objectSentence" required />
+    </div>
+    <br />
+    <div>
+      <label>→ そのタスクを実行して達成される環境: </label>
+      <input type="text" id="targetEnv" required />
+    </div>
+    <br />
+    <button type="submit">次へ</button>
+  </form>
+  </div>
+  <p>　</p>
+  
+  <hr>
+  <p>以下の説明は、最初のページに記載されているものと同様です。</p>
+  
+  <hr>
+  <h2>STEP2の例：オブジェクトに関連するタスクの作成</h2>
+  <p>3回ネットワークを作りますが、3回とも所定のオブジェクトに変更はありません。</p>
+  <p>オブジェクトに関連するタスクは、3回とも異なるものを作成してください。</p>
+  <p>以下に例を示します。</p>
+  <ul>
+      <li>オブジェクト"apple"に対して、タスク"eat apple"</li>
+      <li>オブジェクト"apple"に対して、タスク"put down apple on desk"</li>
+      <li>オブジェクト"water"に対して、タスク"pour water into cup"</li>
+  </ul>
+
+  <hr>
+  <h2>STEP3の例と注意点：最初の環境aの作成</h2>
+  <p>最初の環境aに対しては、以下のものを用いないでください。</p>
+  <ul>
+      <li>--- in hand</li>
+      <li>--- near body</li>
+      <li>--- far from body</li>
+      <li>--- in existence</li>
+  </ul>
+  <p>以下に例を示します。</p>
+  <ul>
+      <li>タスク"eat apple"を実行することで、環境"apple in hand"が達成される</li>
+      <li>タスク"put down apple on desk"を実行することで、環境"apple on desk"が達成される</li>
+      <li>タスク"pour water into cup"を実行することで、環境"water in cup"が達成される</li>
+  </ul>
+</body>
+</html>
